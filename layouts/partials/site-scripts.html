@@ -13,7 +13,7 @@
 
 <script type="text/javascript" src="{{ "js/vendors/popper.min.js" | absURL }}"></script>
 <script type="text/javascript" src="{{ "js/vendors/holder.min.js" | absURL }}"></script>
-<script type="text/javascript" src="{{ "js/vendors-extensions/bootstrap4/bootstrap.js" | absURL }}" ></script>
+<script type="text/javascript" src="{{ "js/vendors-extensions/bootstrap4/bootstrap.min.js" | absURL }}" ></script>
 
 <script type="text/javascript" src="{{ "js/vendors/mdb/mdb.min.js" | absURL }}"></script>
 
@@ -21,14 +21,14 @@
 
 
 <!-- Highlight -->
-{{ if .Site.Params.highlightjs }}  
+{{ if .Site.Params.highlightjs }}
   <script src="{{ "js/vendors/highlight.pack.js" | absURL }}"> </script>
   <script>hljs.initHighlightingOnLoad();</script>
 {{ end }}
 <!-- /.Highlight -->
 
 <!-- KaTeX -->
-{{ if .Site.Params.katex }} 
+{{ if .Site.Params.katex }}
   <script src="{{ "js/vendors/katex/katex.min.js" | absURL }}"> </script>
   <script src="{{ "js/vendors/katex/contrib/auto-render.min.js" | absURL }}"></script>
 
@@ -49,6 +49,3 @@
   // Animations initialization
   new WOW().init();
 </script>
-
-
-
