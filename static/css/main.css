@@ -31,6 +31,10 @@ Layout
 
 */
 
+#legacy-alert {
+  display: none;
+}
+
 body {
   font-family: -apple-system,BlinkMacSystemFont,'Raleway', "Helvetica Neue", Arial, "PingFang SC", "Lantinghei SC", "Microsoft YaHei", sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   /* color: #333; */

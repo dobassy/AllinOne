@@ -21,6 +21,9 @@
 
 
           <div class="post-content markdown">
+            {{ if and (.Site.Params.legacy_alert) (.Params.legacy_alert) }}
+              {{ partial "legacy-alert.html" . }}
+            {{ end }}
             {{ .Content }}
           </div>
 

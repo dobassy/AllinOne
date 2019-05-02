@@ -49,3 +49,23 @@
   // Animations initialization
   new WOW().init();
 </script>
+
+{{ if and (.Site.Params.legacy_alert) (.Params.legacy_alert) }}
+<script type="text/javascript">
+$(window).on('load', function(){
+
+  var t = document.getElementsByClassName("created_at");
+  if (t.length > 0) {
+    var time = t[0].innerText;
+    var nowDate = new Date();
+    nowDate = new Date(nowDate.getFullYear(), nowDate.getMonth() + 1, nowDate.getDate());
+    var pubDate = new Date(time.slice(0, 4), time.slice(5, 7)-1, time.slice(8, 10));
+    var diff = (nowDate - pubDate) / 86400000;
+    if (diff > 365) {
+      document.getElementById("legacy-alert").style.display = "block";
+    }
+  }
+
+});
+</script>
+{{ end }}

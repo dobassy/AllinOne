@@ -26,13 +26,12 @@ $(window).bind('hashchange', function (event) {
         offset: $("body").attr("data-offset")? -$("body").attr("data-offset"):0 ,
         // offset: -30,
         scrollTarget: decodeURI(location.hash.replace(/^\#\/?/, '#'))
-        
       });
 });
 
 // $(".smooth-scroll").on('click', "a", function() {
 $('a[href*="#"]')
-    .bind('click', function (event) {    
+    .bind('click', function (event) {
     // Remove '#' from the hash.
     var hash = this.hash.replace(/^#/, '')
     if (this.pathname === location.pathname && hash) {
@@ -46,12 +45,3 @@ $('a[href*="#"]')
 if (location.hash) {
     $(window).trigger('hashchange');
 }
-
-// // $('[data-spy="scroll"]').each(function () {
-// //     var $spy = $(this).scrollspy('refresh')
-// //   })
-
-// $('[data-spy="scroll"]').on('activate.bs.scrollspy', function () {
-//     // do something…
-//     var offset = $('[data-spy="scroll"]').attr("data-offset")
-//   })
