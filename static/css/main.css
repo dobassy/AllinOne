@@ -219,6 +219,11 @@ a:hover.post-meta, a:active.post-meta {
     margin-right: 1rem;
   }
 
+  .post-wrapper {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
   .single-post {
     margin: 0 0 0 0;
     padding: 5.5% 1rem;
@@ -227,10 +232,15 @@ a:hover.post-meta, a:active.post-meta {
   .single-post .post-heading {
     padding-top: .5rem;
     padding-bottom: .5rem;
-    font-size: 1.4rem;
-    font-weight: 500;
     width:100%;
     overflow-wrap: break-word;
+    font-size: 1.8rem;
+    font-weight: 500;
+  }
+
+  .post-heading h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
   }
 
   .post-content a {
@@ -1189,6 +1199,11 @@ toc-nav  scrollspy
   min-width: 100px;
   text-align: right;
   margin-right: 16px;
+}
+
+.post-item-list {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
 .no-bullet {
