@@ -43,8 +43,9 @@
             {{ i18n "latestPosts" }}
           </div> -->
           <div>
-              {{ range (first $latestpostscount .Data.Pages.ByPublishDate.Reverse ) }}
-                  {{ partial "post-card.html" . }}
+              {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+              {{ range (first $latestpostscount $pages.ByPublishDate.Reverse ) }}
+                {{ partial "post-card.html" . }}
               {{ end }}
 
           </div>
