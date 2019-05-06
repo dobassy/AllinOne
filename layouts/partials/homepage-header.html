@@ -88,7 +88,11 @@
         <!-- Description -->
         <a href="{{ .Site.BaseURL }}">
           <h1 class="display-4 mb-2 mt-2 h1">
+          {{ with $.Site.Params.landing_title }}
+            <strong>{{ . }}</strong>
+          {{ else }}
             <strong>{{ $.Site.Params.author }}</strong>
+          {{ end }}
           </h1>
         </a>
         {{ range $.Site.Params.description }}
@@ -131,7 +135,7 @@
             {{ if $.Site.Params.email }}
                 <a href="mailto:{{ $.Site.Params.email }}"><i class="far fa-envelope-open pr-1" aria-hidden="true"></i></a>
             {{ end }}
-    
+
             {{ if and $.Site.Params.include_rss $.RSSLink }}
                 <a href="{{ $.RSSLink }}"><i class="fas fa-rss pr-1" aria-hidden="true"></i></a>
             {{ end }}
