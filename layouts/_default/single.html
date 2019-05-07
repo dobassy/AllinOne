@@ -1,7 +1,7 @@
 
 {{ define "main" }}
   <!-- Main layout -->
-  <main class="post-main-wrapper">
+  <main class="post-main-wrapper" itemscope itemtype="http://schema.org/BlogPosting">
 
     <!-- Grid row -->
     <div class="row">
@@ -20,21 +20,35 @@
           {{ partial "post-header.html" . }}
 
 
-          <div class="post-content markdown">
-            {{ if and (.Site.Params.legacy_alert) (.Params.legacy_alert) }}
+          <div class="post-content markdown" itemprop="articleBody">
+            {{ if and (.Site.Params.legacyAlertMessage) (.Params.legacy_alert) }}
               {{ partial "legacy-alert.html" . }}
+            {{ end }}
+            {{ if (.Params.images) }}
+              {{ range .Params.images }}
+              <meta itemprop="image" content="{{ . }}">
+              {{ end }}
+            {{ else }}
+              <meta itemprop="image" content="{{ index .Site.Params.images 0 | absURL }}">
             {{ end }}
             {{ .Content }}
           </div>
 
           <!-- Tags -->
           <div class="row">
-            <div class="col-md-8">
-            {{ if .Params.tags }}
-              <div class="mb-5">
+            <div class="col-md-8 mb-5">
+              {{ if .Params.tags }}
                 {{ partial "tags.html" . }}
+              {{ end }}
+              <div itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <i class="fa fa-user-tag pt-3 pl-2 pr-2"></i> <span itemprop="name">{{ .Site.Params.author }}</span>
               </div>
-            {{ end }}
+              <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                <meta itemprop="name" content="{{ .Site.Params.title }}">
+                <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                  <meta itemprop="url" content="{{ index .Site.Params.images 0 | absURL }}">
+                </div>
+              </div>
             </div>
             <!-- <div class="col-md-4">
               <ul class="ul-x post-meta mb-5">
