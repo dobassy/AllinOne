@@ -34,7 +34,6 @@
       <!-- /.Sidebar -->
 
       <!-- Post list -->
-      <!-- <div class="pt-5 px-5 mx-5"> -->
       <div class="col-md-9 mt-3">
         {{ $totalpostscount := len (.Data.Pages) }}
         {{ $latestpostscount := .Site.Params.latestpostscount | default $totalpostscount }}

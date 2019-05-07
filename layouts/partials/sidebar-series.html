@@ -13,12 +13,12 @@
       <div class="mb-2">
         <a href="{{ "series/" | absLangURL }}">
           <span class="font-weight-bold text-uppercase post-meta">
-            <i class="fas fa-bookmark pr-1" aria-hidden="true"></i> 
+            <i class="fas fa-bookmark pr-1" aria-hidden="true"></i>
             Recommend Series
           </span>
         </a>
       </div>
-     
+
       <div class="post-meta" >
         {{ if eq $kind "home" }}
           <!-- Homepage -->
@@ -27,7 +27,7 @@
             {{ $title := add .Name ( add (add " (" (.Count | string)) ")" ) | title }}
             {{ $url := add ("series/" | absLangURL) (.Name | urlize) }}
             {{ $data :=  (where $.Site.Data.series.series ".name" .Name) }}
-            {{ if gt (len $data) 0 }}   
+            {{ if gt (len $data) 0 }}
               <!-- In Data  -->
               {{ range $data }}
                 {{ partial "sidebar-card.html" (dict "url" $url "title" $title "img_path" ( .img | absLangURL ) "text" .summary ) }}
@@ -36,7 +36,7 @@
               <!-- Not in Data -->
               {{ partial "sidebar-card.html" (dict "url" $url "title" $title "img_path" ( "img/default.jpg" | absLangURL ) "text" nil ) }}
             {{ end }}
-          
+
           {{ end }}
 
         {{ else }}
@@ -46,9 +46,7 @@
           {{ end }}
         {{ end }}
       </div>
-    
-      
+
     </div>
   {{ end }}
 {{ end }}
-  

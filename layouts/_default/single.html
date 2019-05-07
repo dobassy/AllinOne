@@ -1,4 +1,3 @@
-
 {{ define "main" }}
   <!-- Main layout -->
   <main class="post-main-wrapper" itemscope itemtype="http://schema.org/BlogPosting">
@@ -18,7 +17,6 @@
         <div class="z-depth-1  post-wrapper white-bg single-post">
 
           {{ partial "post-header.html" . }}
-
 
           <div class="post-content markdown" itemprop="articleBody">
             {{ if and (.Site.Params.legacyAlertMessage) (.Params.legacy_alert) }}
@@ -50,11 +48,6 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="col-md-4">
-              <ul class="ul-x post-meta mb-5">
-                <li><a href="{{ .Type | relLangURL }}"><i class="fas fa-long-arrow-alt-right pr-2"></i>{{ i18n "return" }}</a></li>
-              </ul>
-            </div> -->
           </div>
           <!-- /.Tags -->
 
@@ -95,7 +88,6 @@
 
     </div>
     <!-- /.Grid row -->
-
 
   </main>
   <!-- /.Main layout -->

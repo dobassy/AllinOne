@@ -6,14 +6,13 @@
 		{{ $h1_n := len (findRE "<h1.*?>(.|\n])+?</h1>" .Content) }}
 		{{ $re := (cond (eq $h1_n 0) "<h[2-4]" "<h[1-4]") }}
 		{{ $renum := (cond (eq $h1_n 0) "[2-4]" "[1-4]") }}
-	
 
 		<!--Grid column-->
 		<div class="col-md-2 pl-0">
 
 			<!--Scrollspy-->
 			<div id="page-scrollspy" class="toc-nav">
-				
+
 				<ul class="nav nav-pills ml-0">
 					<!-- TOC header -->
 					<li class="nav-item pb-3 text-center">
@@ -35,7 +34,7 @@
 												 {{ $header | plainify | htmlUnescape }}
 											</a>
 										</li>
-						 
+
 								<!-- close list -->
 								{{ range seq $next_heading }}
 									</ul>

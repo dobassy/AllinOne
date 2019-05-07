@@ -1,6 +1,5 @@
 {{ define "main" }}
   <main class="post-main-wrapper">
-    <!-- <div class="container"> -->
     <div class="row">
 
       {{ $single := add (add (len (where .Pages ".Params.categories" "ne" nil)) (len (where .Pages ".Params.series" "ne" nil)) ) (len (where .Pages ".Params.tags" "ne" nil)) }}
@@ -14,7 +13,6 @@
         <!-- /.Sidebar -->
 
         <!-- Post list -->
-        <!-- <div class="content"> -->
         <div class="col-md-9 mt-3">
       {{ else }}
         <div class="container content mt-3">
