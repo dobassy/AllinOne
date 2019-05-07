@@ -13,7 +13,8 @@
 
 <script type="text/javascript" src="{{ "js/vendors/mdb/mdb.min.js" | absURL }}"></script>
 
-<script type="text/javascript" src="{{ "js/main.js" | absURL }}"></script>
+{{ $secureJS := resources.Get "js/main.js" | minify | resources.Fingerprint "sha512" }}
+<script type="text/javascript" src="{{ $secureJS.Permalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
 
 
 <!-- Highlight -->

@@ -43,8 +43,11 @@
   <link href="{{ "css/vendors/bootstrap4/bootstrap.min.css" | absURL }}" rel="stylesheet">
   <link href="{{ "css/vendors-extensions/mdb/mdb.min.css" | absURL }}" rel="stylesheet">
   <link href="{{ "css/vendors/mdb/style.min.css" | absURL }}" rel="stylesheet">
-  <link href="{{ "css/main.css" | absURL }}" rel="stylesheet">
-  <link href="{{ "css/override.css" | absURL }}" rel="stylesheet">
+
+  {{ $style := resources.Get "css/main.css" | minify | resources.Fingerprint "sha512" }}
+  <link href="{{ $style.Permalink }}" rel="stylesheet">
+  {{ $styleOverride := resources.Get "css/override.css" | minify | resources.Fingerprint "sha512" }}
+  <link href="{{ $styleOverride.Permalink }}" rel="stylesheet">
 
 
   <!-- Icon -->
