@@ -15,17 +15,30 @@
   <h1 class="px-4 post-heading" itemprop="headline">{{ .Title }}</h1>
 
   <ul class="post-meta li-x mt-1">
+    {{ $schema_dateformat := "2006-01-02T15:04:05+09:00" }}
     {{ if and .Site.Params.dateformfull .Site.Params.dateform }}
-      <li class="created_at">
-        <time itemprop="datePublished dateModified" datetime="{{ .Date.Format "2006-01-02T15:04:05+09:00" }}">
+      <li>
+        <time class="created_at" itemprop="datePublished" datetime="{{ .Date.Format $schema_dateformat }}">
         {{ .Date.Format .Site.Params.dateform }}
         </time>
+
+        {{ if .Lastmod }}
+        <time itemprop="dateModified" datetime="{{ .Lastmod.Format $schema_dateformat }}">
+        ( last updated: {{ .Lastmod.Format "2006-01-02 15:04" }} )
+        </time>
+        {{ end }}
       </li>
     {{ else }}
-      <li class="created_at">
-        <time itemprop="datePublished dateModified" datetime="{{ .Date.Format "2006-01-02T15:04:05+09:00" }}">
+      <li>
+        <time class="created_at" itemprop="datePublished" datetime="{{ .Date.Format $schema_dateformat }}">
         {{ .Date.Format "Jan 2, 2006" }}
         </time>
+
+        {{ if .Lastmod }}
+        <time itemprop="dateModified" datetime="{{ .Lastmod.Format $schema_dateformat }}">
+        ( last updated: {{ .Lastmod.Format "Jan 2, 15:04 2006" }} )
+        </time>
+        {{ end }}
       </li>
     {{ end }}
 
