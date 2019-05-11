@@ -12,6 +12,7 @@
   {{ template "_internal/twitter_cards.html" . }}
   {{ template "_internal/schema.html" . }}
 
+  <meta name="keywords" content="{{ delimit .Keywords ", " }}">
   <title>
   {{ if eq .Kind "home" }}
       {{ .Site.Title }}
