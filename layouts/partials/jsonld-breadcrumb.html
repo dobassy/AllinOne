@@ -1,26 +1,23 @@
 {{ if .IsPage }}
-  {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-  {{ $.Scratch.Add "path" .Site.BaseURL }}
-
-  {{ $.Scratch.Add "breadcrumb" (slice (dict "url" .Site.BaseURL "name" "home" "position" 1 )) }}
-
-  {{ with index .Params.categories 0 }}
-    {{ $categoryUrl := printf "%s%s" ("categories/" | absLangURL) ( . | urlize ) }}
-    {{ $.Scratch.Add "breadcrumb" (slice (dict "url" $categoryUrl "name" . "position" 2 )) }}
-  {{ end }}
-
   <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [{{ range $.Scratch.Get "breadcrumb" }}{{ if ne .position 1 }},{{ end }}{
+    "itemListElement": [{
           "@type": "ListItem",
-          "position": {{ .position }},
+          "position": 1,
           "item": {
-            "@id": {{ .url }},
-            "name": {{ .name }}
+              "@id": {{ .Site.BaseURL }},
+              "name": "home"
           }
-      }{{ end }}]
+      }{{ with .Params.categories -}},{
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+              "@id": {{ printf "%s%s" ("categories/" | absLangURL) ( index . 0 | urlize ) }},
+              "name": {{ index . 0 }}
+          }
+      }{{- end }}]
   }
   </script>
 {{ end }}
