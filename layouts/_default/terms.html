@@ -15,7 +15,7 @@
 
       <!-- Post list -->
       <div class="col-md-9 mt-3">
-        <ul>
+        <div class="list-page-header">
           {{ partial "page-heading.html" . }}
 
           {{ if .Content }}
@@ -23,7 +23,7 @@
               {{ .Content }}
             </div>
           {{ end }}
-        </ul>
+        </div>
         <ul>
 
           {{ range .Data.Terms.ByCount }}

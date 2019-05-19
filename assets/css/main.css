@@ -215,6 +215,37 @@ a:hover.post-meta, a:active.post-meta {
 }
 
 
+.post-meta .icon .fa {
+  vertical-align: middle;
+}
+
+.post-meta .tags ul.tags-sm {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.post-meta-footer .icon .fa {
+  padding: 0 0.5rem;
+  font-size: 1rem;
+  vertical-align: middle;
+  color: #000;
+}
+
+.post-meta-footer .meta-item {
+  margin: 0 0 0.5rem;
+  padding: 0;
+}
+
+.postcard-meta-footer .tag-name {
+  padding-bottom: 0.6rem;
+}
+
+.post-meta-list ul {
+  margin: 0;
+  padding: 0;
+}
+
 /* single page design for smartphone */
 @media screen and (max-width: 480px) {
   .post-main-wrapper {
@@ -271,7 +302,7 @@ a:hover.post-meta, a:active.post-meta {
 }
 
 
-/* li-x 表示横过来的li */
+/* li-x: Representing `li` */
 .li-x li {
   padding: 0 8px;
   display: inline-block;
@@ -520,6 +551,18 @@ Markdown
   -webkit-box-shadow: none;
 }
 
+
+
+/*
+
+List page (taxonomy, etc)
+
+*/
+
+.list-page-header {
+  margin-bottom: 1rem;
+  padding-left:  2rem;
+}
 
 
 /*

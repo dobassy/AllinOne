@@ -25,6 +25,7 @@
 							{{ range findRE $renum . 1 }}
 								{{ $next_heading := (cond (eq $h1_n 0) (sub (int .) 1 ) (int . ) ) }}
 								{{ range seq $next_heading }}
+									<li>
 									<ul class="nav">
 								{{end}}
 								{{ $anchorId :=  (replaceRE ".* id=\"(.*?)\".*" "$1" $header ) }}
@@ -38,6 +39,7 @@
 								<!-- close list -->
 								{{ range seq $next_heading }}
 									</ul>
+									</li>
 								{{end}}
 							{{ end }}
 						{{ end }}
