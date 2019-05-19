@@ -33,7 +33,8 @@
   </a>
 
   <div class="post-meta li-x mt-2 div-x">
-    <div>
+    <div class="post-meta-list">
+      <ul>
       {{ if .Params.categories }}
         {{ range .Params.categories }}
           <li><a href="{{ "categories/" | absLangURL }}{{ . | urlize }}"><i class="fas fa-folder-open pr-1" aria-hidden="true"></i> {{ . }} </a></li>
@@ -44,6 +45,7 @@
           <li><a href="{{ "series/" | absLangURL }}{{ . | urlize }}"><i class="fas fa-bookmark pr-1" aria-hidden="true"></i>{{ . }}</a></li>
         {{ end }}
       {{ end }}
+      </ul>
     </div>
 
     <div class="postcard-meta-footer">
