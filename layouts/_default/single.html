@@ -35,12 +35,15 @@
           <!-- Tags -->
           <div class="row">
             <div class="col-md-8 mb-5">
-              {{ if .Params.tags }}
-                {{ partial "tags.html" . }}
-              {{ end }}
-              <div itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <i class="fa fa-user-tag pt-3 pl-2 pr-2"></i> <span itemprop="name">{{ .Site.Params.author }}</span>
-              </div>
+              <div class="post-meta post-meta-footer">
+                {{ if .Params.tags }}
+                  {{ partial "tags.html" . }}
+                {{ end }}
+                <div class="meta-item" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                  <span class="icon"><i class="fa fa-user-tag"></i></span>
+                  <span itemprop="name">{{ .Site.Params.author }}</span>
+                </div>
+              </div><!-- .post-meta-footer -->
               <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
                 <meta itemprop="name" content="{{ .Site.Params.title }}">
                 <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
