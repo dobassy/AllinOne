@@ -555,6 +555,18 @@ Markdown
 
 /*
 
+List page (taxonomy, etc)
+
+*/
+
+.list-page-header {
+  margin-bottom: 1rem;
+  padding-left:  2rem;
+}
+
+
+/*
+
   tags
 
  */

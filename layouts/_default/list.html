@@ -17,7 +17,7 @@
       {{ else }}
         <div class="container content mt-3">
       {{ end }}
-          <ul>
+          <div class="list-page-header">
             <div class="div-x">
               {{ partial "page-heading.html" . }}
               {{ $page_num := (len .Data.Pages)}}
@@ -34,7 +34,7 @@
                 {{ .Content }}
               </div>
           {{ end }}
-        </ul>
+        </div>
         <div>
           <div class="pagination pagination-outline justify-content-end active-color">
             {{ $paginator := .Paginate .Data.Pages.ByPublishDate.Reverse }}
