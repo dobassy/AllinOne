@@ -6,8 +6,8 @@
 
 
 <!--Carousel Wrapper-->
-<div id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  <!--data-pause="true" data-interval="300000"-->
-
+<header id="site-header" class="carousel slide carousel-fade" data-ride="carousel" style="height: 18rem;" >  <!--data-pause="true" data-interval="300000"-->
+  {{ partial "site-navbar.html" . }}
   <!--Slides-->
   <div class="carousel-inner" role="listbox">
     {{ range $index, $element := $files }}
@@ -124,5 +124,5 @@
   </div>
   <!-- Content -->
 
-</div>
+</header>
 <!--/.Carousel Wrapper-->

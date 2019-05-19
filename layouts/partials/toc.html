@@ -9,46 +9,46 @@
 
 		<!--Grid column-->
 		<div class="col-md-2 pl-0">
+			<aside>
+				<!--Scrollspy-->
+				<div id="page-scrollspy" class="toc-nav">
 
-			<!--Scrollspy-->
-			<div id="page-scrollspy" class="toc-nav">
+					<ul class="nav nav-pills ml-0">
+						<!-- TOC header -->
+						<li class="nav-item pb-3 text-center">
+							<span class="font-weight-bold mb-2">- CATALOG - </span>
+						</li>
 
-				<ul class="nav nav-pills ml-0">
-					<!-- TOC header -->
-					<li class="nav-item pb-3 text-center">
-						<span class="font-weight-bold mb-2">- CATALOG - </span>
-					</li>
+						{{ range $headers }}
+							{{ $header := . }}
+							{{ range first 1 (findRE $re $header 1) }}
+								{{ range findRE $renum . 1 }}
+									{{ $next_heading := (cond (eq $h1_n 0) (sub (int .) 1 ) (int . ) ) }}
+									{{ range seq $next_heading }}
+										<li>
+										<ul class="nav">
+									{{end}}
+									{{ $anchorId :=  (replaceRE ".* id=\"(.*?)\".*" "$1" $header ) }}
 
-					{{ range $headers }}
-						{{ $header := . }}
-						{{ range first 1 (findRE $re $header 1) }}
-							{{ range findRE $renum . 1 }}
-								{{ $next_heading := (cond (eq $h1_n 0) (sub (int .) 1 ) (int . ) ) }}
-								{{ range seq $next_heading }}
-									<li>
-									<ul class="nav">
-								{{end}}
-								{{ $anchorId :=  (replaceRE ".* id=\"(.*?)\".*" "$1" $header ) }}
+											<li class="nav-item">
+							 					<a class="nav-link" href="#{{ $anchorId }}">
+													 {{ $header | plainify | htmlUnescape }}
+												</a>
+											</li>
 
-										<li class="nav-item">
-						 					<a class="nav-link" href="#{{ $anchorId }}">
-												 {{ $header | plainify | htmlUnescape }}
-											</a>
+									<!-- close list -->
+									{{ range seq $next_heading }}
+										</ul>
 										</li>
-
-								<!-- close list -->
-								{{ range seq $next_heading }}
-									</ul>
-									</li>
-								{{end}}
+									{{end}}
+								{{ end }}
 							{{ end }}
-						{{ end }}
-				 {{end}}
+					 {{end}}
 
-				</ul>
-			</div>
-			<!--Scrollspy-->
-
+					</ul>
+				</div>
+				<!--Scrollspy-->
+			</aside>
 		</div>
 		<!--Grid column-->
 	{{ end }}

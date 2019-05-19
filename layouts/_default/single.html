@@ -16,69 +16,72 @@
         <!-- Spied element -->
         <div class="z-depth-1  post-wrapper white-bg single-post">
 
-          {{ partial "post-header.html" . }}
+          <article>
+            {{ partial "post-header.html" . }}
 
-          <div class="post-content markdown" itemprop="articleBody">
-            {{ if and (.Site.Params.legacyAlertMessage) (.Params.legacy_alert) }}
-              {{ partial "legacy-alert.html" . }}
-            {{ end }}
-            {{ if (.Params.images) }}
-              {{ range .Params.images }}
-              <meta itemprop="image" content="{{ . }}">
+            <div class="post-content markdown" itemprop="articleBody">
+              {{ if and (.Site.Params.legacyAlertMessage) (.Params.legacy_alert) }}
+                {{ partial "legacy-alert.html" . }}
               {{ end }}
-            {{ else }}
-              <meta itemprop="image" content="{{ index .Site.Params.images 0 | absURL }}">
-            {{ end }}
-            {{ .Content }}
-          </div>
-
-          <!-- Tags -->
-          <div class="row">
-            <div class="col-md-8 mb-5">
-              <div class="post-meta post-meta-footer">
-                {{ if .Params.tags }}
-                  {{ partial "tags.html" . }}
+              {{ if (.Params.images) }}
+                {{ range .Params.images }}
+                <meta itemprop="image" content="{{ . }}">
                 {{ end }}
-                <div class="meta-item" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                  <span class="icon"><i class="fa fa-user-tag"></i></span>
-                  <span itemprop="name">{{ .Site.Params.author }}</span>
-                </div>
-              </div><!-- .post-meta-footer -->
-              <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
-                <meta itemprop="name" content="{{ .Site.Params.title }}">
-                <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
-                  <meta itemprop="url" content="{{ index .Site.Params.images 0 | absURL }}">
+              {{ else }}
+                <meta itemprop="image" content="{{ index .Site.Params.images 0 | absURL }}">
+              {{ end }}
+              {{ .Content }}
+            </div>
+
+            <!-- Tags -->
+            <div class="row">
+              <div class="col-md-8 mb-5">
+                <div class="post-meta post-meta-footer">
+                  {{ if .Params.tags }}
+                    {{ partial "tags.html" . }}
+                  {{ end }}
+                  <div class="meta-item" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                    <span class="icon"><i class="fa fa-user-tag"></i></span>
+                    <span itemprop="name">{{ .Site.Params.author }}</span>
+                  </div>
+                </div><!-- .post-meta-footer -->
+                <div itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+                  <meta itemprop="name" content="{{ .Site.Params.title }}">
+                  <div itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+                    <meta itemprop="url" content="{{ index .Site.Params.images 0 | absURL }}">
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-          <!-- /.Tags -->
+            <!-- /.Tags -->
+          </article>
 
           <!-- Prev & Next -->
-          <div class="row pt-3">
-            <div class="col-md-6">
-              {{ if .PrevInSection }}
-                <a href={{ .PrevInSection.Permalink }} class="post-meta">{{ i18n "previousPost" }}
-                  <div class="pt-2 pb-5 d-flex">
-                    <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
-                    <span>{{ .PrevInSection.Title }}</span>
-                  </div>
-                </a>
-              {{ end }}
-            </div>
+          <aside>
+            <div class="row pt-3">
+              <div class="col-md-6">
+                {{ if .PrevInSection }}
+                  <a href={{ .PrevInSection.Permalink }} class="post-meta">{{ i18n "previousPost" }}
+                    <div class="pt-2 pb-5 d-flex">
+                      <i class="fas fa-angle-left text-grey font-weight-bold mr-2 active-color"></i>
+                      <span>{{ .PrevInSection.Title }}</span>
+                    </div>
+                  </a>
+                {{ end }}
+              </div>
 
-            <div class="col-md-6 text-right" >
-              {{ if .NextInSection }}
-                <a href={{ .NextInSection.Permalink }} class="post-meta">{{ i18n "nextPost" }}
-                  <div class="pt-2 pb-5 flex-reverse">
-                    <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
-                    <span>{{ .NextInSection.Title }}</span>
-                  </div>
-                </a>
-              {{ end }}
+              <div class="col-md-6 text-right" >
+                {{ if .NextInSection }}
+                  <a href={{ .NextInSection.Permalink }} class="post-meta">{{ i18n "nextPost" }}
+                    <div class="pt-2 pb-5 flex-reverse">
+                      <i class="fas fa-angle-right text-grey font-weight-bold ml-2 active-color"></i>
+                      <span>{{ .NextInSection.Title }}</span>
+                    </div>
+                  </a>
+                {{ end }}
+              </div>
             </div>
-          </div>
-
+          </aside>
           <!-- /.Prev & Next -->
 
           {{ partial "related.html" . }}

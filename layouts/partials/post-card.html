@@ -1,4 +1,4 @@
-<div class="post-wrapper white-bg post-card">
+<article class="post-wrapper white-bg post-card">
 
   <a href="{{ .Permalink }}">
     <div class="post-header text-center">
@@ -18,6 +18,8 @@
         {{ end }}
       </ul>
     </div>
+  </a>
+  <a href="{{ .Permalink }}">
     {{ with .Params.img }}
 
       <div class="view">
@@ -55,4 +57,4 @@
     </div>
   </div>
 
-</div>
+</article>
