@@ -5,4 +5,10 @@
     <span class="meta"><time datetime='{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}'>{{ .Date.Format "Jan 2, 2006" }}</time></span>
     {{ end }}
     <a href="{{ .Permalink }}"><h2 class="post-item-list">{{ .Title }}</h2></a>
+    {{/* Hatena Bookmark (a.k.a. hatebu) is the social bookmark site for japanese */}}
+    {{ if and ( .Site.Params.hatebu ) ( eq (getenv "HUGO_ENV") "production" ) }}
+    <a href="https://b.hatena.ne.jp/entry/{{ .Permalink }}">
+      <img class="hatena-bookmark" src="https://b.hatena.ne.jp/entry/image/{{ .Permalink }}">
+    </a>
+    {{ end }}
 </article>

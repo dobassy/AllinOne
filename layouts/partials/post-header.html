@@ -46,6 +46,14 @@
       <li class="middot"></li>
       <li>{{ i18n "readingTime" .ReadingTime }}</li>
     {{ end }}
+    {{/* Hatena Bookmark (a.k.a. hatebu) is the social bookmark site for japanese */}}
+    {{ if and ( .Site.Params.hatebu ) ( eq (getenv "HUGO_ENV") "production" ) }}
+      <li>
+        <a href="https://b.hatena.ne.jp/entry/{{ .Permalink }}">
+          <img class="hatena-bookmark" src="https://b.hatena.ne.jp/entry/image/{{ .Permalink }}">
+        </a>
+      </li>
+    {{ end }}
   </ul>
   {{ with .Params.img }}
     <div class="view">

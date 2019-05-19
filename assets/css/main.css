@@ -1248,9 +1248,15 @@ toc-nav  scrollspy
   margin-right: 16px;
 }
 
+.post-item img.hatena-bookmark {
+  padding-left: .5rem;
+}
+
 .post-item-list {
   font-size: 1rem;
   font-weight: 400;
+  margin-bottom: 0;
+  vertical-align: middle;
 }
 
 .no-bullet {
