@@ -241,6 +241,11 @@ a:hover.post-meta, a:active.post-meta {
   padding-bottom: 0.6rem;
 }
 
+.post-meta-list ul {
+  margin: 0;
+  padding: 0;
+}
+
 /* single page design for smartphone */
 @media screen and (max-width: 480px) {
   .post-main-wrapper {
