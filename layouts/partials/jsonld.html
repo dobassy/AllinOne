@@ -25,13 +25,17 @@
         "dateModified" : {{ .Lastmod.Format "2006-01-02T15:04:05Z00:00" }},
         "url" : {{ .Permalink }},
         "mainEntityOfPage" : {{ .Permalink }},
-        {{ with index $.Site.Params.images 0 -}}
+        {{- if .Params.images }}
         "image": {
             "@type": "ImageObject",
-            "url": {{ . }}
+            "url": {{ index .Params.images 0 | absURL }}
         },
-        {{- end }}
-        {{ with .Params.images -}}"image" : [ {{ range $i, $e := . }}{{ if $i }}, {{ end }}{{ $e | absURL }}{{ end }} ],{{- end }}
+        {{ else if $.Site.Params.images }}
+        "image": {
+            "@type": "ImageObject",
+            "url": {{ index $.Site.Params.images 0 | absURL }}
+        },
+        {{ end -}}
         {{- if $anyKeywords }}"keywords" : [{{ delimit $joinKeywords ", " }}],{{ end }}
         "author" : {
             "@type": "Person",
